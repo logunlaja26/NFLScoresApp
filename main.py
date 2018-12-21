@@ -1,11 +1,15 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, redirect, url_for
 import csv
 
 app = Flask(__name__)
 
 
 @app.route("/home")
-@app.route("/")
+def index():
+	indexFileUrl = url_for('static', filename='index.html')
+	return redirect(indexFileUrl)
+
+@app.route("/api/scores")
 def csvParser():
 	output = []
 	with open('nfl_games.csv', 'r') as csv_file:
