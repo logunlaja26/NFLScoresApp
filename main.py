@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 import csv
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ def csvParser():
 		csv_reader = csv.DictReader(csv_file)
 		for line in csv_reader:
 		 	output.append(line)
-	return output
+	return jsonify({'nfl_scores': output})
 
 
 if __name__ == "__main__":
