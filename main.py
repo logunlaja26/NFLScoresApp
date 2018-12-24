@@ -4,10 +4,15 @@ import csv
 app = Flask(__name__)
 
 
-@app.route("/home")
+@app.route("/")
 def index():
 	indexFileUrl = url_for('static', filename='index.html')
 	return redirect(indexFileUrl)
+
+@app.route("/<staticFileName>")
+def staticFile(staticFileName):
+	staticFileUrl = url_for('static', filename=staticFileName)
+	return redirect(staticFileUrl)
 
 @app.route("/api/scores")
 def csvParser():
