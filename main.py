@@ -23,6 +23,9 @@ def csvParser():
 		 	output.append(line)
 	return jsonify({'nfl_scores': output})
 
+@app.route("/api/historicalPage")
+def historicalPage():
+	return "Testing..."
 
 if __name__ == "__main__":
 	app.run(debug=True)
