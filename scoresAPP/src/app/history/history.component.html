@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <table border="2px">
-    <tr>
-      <th>Date of Contest</th>
-      <th>Home team</th>
-      <th>Away team</th>
-      <th>Home team scores</th>
-      <th>Away team scores</th>
-    </tr>
-    <tr>
-      <td width="100">?</td>
-      <td width="100">?</td>
-      <td width="100">?</td>
-      <td width="100">?</td>
-      <td width="100">?</td>  
-    </tr>   
-  </table>
-
-</body>
-</html>
+<table border="2px">
+  <tr>
+    <th>Date of Contest</th>
+    <th>Home team</th>
+    <th>Away team</th>
+    <th>Home team scores</th>
+    <th>Away team scores</th>
+  </tr>
+  <tr ngFor="let score for scores">
+    <td width="100">{{score}}</td>
+    <td width="100">{{score}}</td>
+    <td width="100">{{score}}</td>
+    <td width="100">{{score}}</td>
+    <td width="100">{{score}}</td>  
+  </tr>   
+</table>
