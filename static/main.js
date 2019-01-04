@@ -185,7 +185,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n<head>\n\t<title>History Stats</title>\n</head>\n<body>\n\t<table></table>\n\n</body>\n</html>"
+module.exports = "<table border=\"2px\">\n  <tr>\n    <th>Date of Contest</th>\n    <th>Home team</th>\n    <th>Away team</th>\n    <th>Home team scores</th>\n    <th>Away team scores</th>\n  </tr>\n  <tr ngFor=\"let character for CHARACTERS\">\n    <td width=\"100\">{{character}}</td>\n    <td width=\"100\">{{character}}</td>\n    <td width=\"100\">{{character}}</td>\n    <td width=\"100\">{{character}}</td>\n    <td width=\"100\">{{character}}</td>  \n  </tr>   \n</table>"
 
 /***/ }),
 
@@ -201,12 +201,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoryComponent", function() { return HistoryComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _nfl_scores_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../nfl-scores.service */ "./src/app/nfl-scores.service.ts");
+
 
 
 var HistoryComponent = /** @class */ (function () {
-    function HistoryComponent() {
+    function HistoryComponent(atService) {
+        this.atService = atService;
     }
     HistoryComponent.prototype.ngOnInit = function () {
+        this.columns = this.atService.getColumns();
+        //["Date of Contest","Home team","Away team","Home team scores","Away team scores"]
+        this.characters = this.atService.getCharacters();
+        //all data in mock-data.ts
     };
     HistoryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -214,7 +221,7 @@ var HistoryComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./history.component.html */ "./src/app/history/history.component.html"),
             styles: [__webpack_require__(/*! ./history.component.css */ "./src/app/history/history.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_nfl_scores_service__WEBPACK_IMPORTED_MODULE_2__["NflScoresService"]])
     ], HistoryComponent);
     return HistoryComponent;
 }());
@@ -274,6 +281,78 @@ var HomeComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], HomeComponent);
     return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/mock-data.ts":
+/*!******************************!*\
+  !*** ./src/app/mock-data.ts ***!
+  \******************************/
+/*! exports provided: CHARACTERS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHARACTERS", function() { return CHARACTERS; });
+var CHARACTERS = [
+    {
+        dateOfContest: '12/7/18',
+        homeTeam: 'Eagles',
+        awayTeam: 'Bengals',
+        homeTeamScores: '13',
+        awayTeamScores: '7'
+    },
+    {
+        dateOfContest: '12/1/18',
+        homeTeam: 'Bears',
+        awayTeam: 'cardinals',
+        homeTeamScores: '20',
+        awayTeamScores: '21'
+    },
+];
+
+
+/***/ }),
+
+/***/ "./src/app/nfl-scores.service.ts":
+/*!***************************************!*\
+  !*** ./src/app/nfl-scores.service.ts ***!
+  \***************************************/
+/*! exports provided: NflScoresService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NflScoresService", function() { return NflScoresService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _mock_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mock-data */ "./src/app/mock-data.ts");
+
+
+
+
+var NflScoresService = /** @class */ (function () {
+    function NflScoresService() {
+    }
+    NflScoresService.prototype.getCharacters = function () {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(_mock_data__WEBPACK_IMPORTED_MODULE_3__["CHARACTERS"]);
+    };
+    NflScoresService.prototype.getColumns = function () {
+        return ["Date of Contest", "Home team", "Away team", "Home team scores", "Away team scores"];
+    };
+    ;
+    NflScoresService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], NflScoresService);
+    return NflScoresService;
 }());
 
 

@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/delay';
+import { Observable, of } from 'rxjs';
 import { CHARACTERS } from './mock-data';
 @Injectable()
 
@@ -14,7 +12,7 @@ export class NflScoresService {
   constructor() { }
 
   getCharacters(): Observable<any[]>{
-  	return Observable.of(CHARACTERS).delay(100);
+  	return of(CHARACTERS);
   }
 
   getColumns(): string[] {

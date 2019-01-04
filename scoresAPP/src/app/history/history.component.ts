@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NflScoresService } from '../nfl-scores.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-history',
