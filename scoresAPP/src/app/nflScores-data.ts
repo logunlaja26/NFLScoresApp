@@ -1,4 +1,4 @@
-export const CHARACTERS: any[] =
+export const NFL_SCORES: any[] =
 
 [
 

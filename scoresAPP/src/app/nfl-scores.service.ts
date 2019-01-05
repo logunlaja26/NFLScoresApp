@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { CHARACTERS } from './mock-data';
+import { NFL_SCORES } from './nflScores-data';
 @Injectable()
 
 
@@ -12,7 +12,8 @@ export class NflScoresService {
   constructor() { }
 
   getCharacters(): Observable<any[]>{
-  	return of(CHARACTERS);
+    console.log('nfl_scores', NFL_SCORES);
+  	return of(NFL_SCORES);
   }
 
   getColumns(): string[] {

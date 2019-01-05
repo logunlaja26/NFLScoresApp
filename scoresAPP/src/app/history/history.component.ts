@@ -8,17 +8,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
-  characters: Observable<any[]>;
+  scores: Observable<any[]>;
   columns: string[];
 
 
-  constructor(private atService: NflScoresService) { }
+  constructor(private nflService: NflScoresService) { }
 
   ngOnInit() {
-  	this.columns = this.atService.getColumns();
+  	this.columns = this.nflService.getColumns();
   	//["Date of Contest","Home team","Away team","Home team scores","Away team scores"]
 
-  	this.characters = this.atService.getCharacters();
+  	this.scores = this.nflService.getCharacters();
   	//all data in mock-data.ts
   }
 

@@ -6,11 +6,11 @@
     <th>Home team scores</th>
     <th>Away team scores</th>
   </tr>
-  <tr ngFor="let char for CHARACTERS">
-    <td width="100">{{char[]}}</td>
-    <td width="100">{{char[]}}</td>
-    <td width="100">{{char[]}}</td>
-    <td width="100">{{char[]}}</td>
-    <td width="100">{{char[]}}</td>  
-  </tr>   
+  <tr *ngFor="let score of scores | async">
+    <td width="100">{{score.dateOfContest}}</td>
+    <td width="100">{{score.homeTeam}}</td>
+    <td width="100">{{score.awayTeam}}</td>
+    <td width="100">{{score.homeTeamScores}}</td>
+    <td width="100">{{score.awayTeamScores}}</td>
+  </tr>
 </table>
