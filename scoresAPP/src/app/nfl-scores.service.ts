@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { NFL_SCORES } from './nflScores-data';
+import { HttpClient } from '@angular/common/http';
 @Injectable()
 
 
@@ -9,11 +10,13 @@ import { NFL_SCORES } from './nflScores-data';
 })
 export class NflScoresService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  getCharacters(): Observable<any[]>{
-    console.log('nfl_scores', NFL_SCORES);
-  	return of(NFL_SCORES);
+  getCharacters(): Observable<any>{
+    let nflScores = this.httpClient.get("/api/scores");
+    console.log(nflScores);
+
+  	return nflScores;
   }
 
   getColumns(): string[] {
