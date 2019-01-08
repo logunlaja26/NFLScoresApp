@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, redirect, url_for
+from flask import Flask, jsonify, redirect, url_for, render_template
 import csv
 
 app = Flask(__name__)
@@ -6,8 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-	indexFileUrl = url_for('static', filename='index.html')
-	return redirect(indexFileUrl)
+	return render_template('index.html')
 
 @app.route("/<staticFileName>")
 def staticFile(staticFileName):

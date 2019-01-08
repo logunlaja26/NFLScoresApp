@@ -136,6 +136,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _history_history_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./history/history.component */ "./src/app/history/history.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _teams_teams_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./teams/teams.component */ "./src/app/teams/teams.component.ts");
+
 
 
 
@@ -152,7 +154,8 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
                 _history_history_component__WEBPACK_IMPORTED_MODULE_6__["HistoryComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"]
+                _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
+                _teams_teams_component__WEBPACK_IMPORTED_MODULE_8__["TeamsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -251,7 +254,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}\n  </h1>\n  <img width=\"300\" alt=\"NFL Logo\" src=\"/assets/nfl.jpg\">\n</div>\n<P> This platform will provide you with historical statistics for the 2017 NFL season.  The stats included here are all 2017 NFL games and individual team game stats.  \n</P>\n<ul>\n  \n  <li>\n    <h2><a routerLink=\"/history\">Historical Stats</a></h2>\n  </li>\n</ul>"
+module.exports = "<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}\n  </h1>\n  <img width=\"300\" alt=\"NFL Logo\" src=\"static/assets/nfl.jpg\">\n</div>\n<P> This platform will provide you with historical statistics for the 2017 NFL season.  The stats included here are all 2017 NFL games and individual team game stats.\n</P>\n<ul>\n\n  <li>\n    <h2><a routerLink=\"/history\">Historical Stats</a></h2>\n  </li>\n</ul>\n"
 
 /***/ }),
 
@@ -327,6 +330,62 @@ var NflScoresService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], NflScoresService);
     return NflScoresService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/teams/teams.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/teams/teams.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RlYW1zL3RlYW1zLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/teams/teams.component.html":
+/*!********************************************!*\
+  !*** ./src/app/teams/teams.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  teams works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/teams/teams.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/teams/teams.component.ts ***!
+  \******************************************/
+/*! exports provided: TeamsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamsComponent", function() { return TeamsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var TeamsComponent = /** @class */ (function () {
+    function TeamsComponent() {
+    }
+    TeamsComponent.prototype.ngOnInit = function () {
+    };
+    TeamsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-teams',
+            template: __webpack_require__(/*! ./teams.component.html */ "./src/app/teams/teams.component.html"),
+            styles: [__webpack_require__(/*! ./teams.component.css */ "./src/app/teams/teams.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], TeamsComponent);
+    return TeamsComponent;
 }());
 
 
