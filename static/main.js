@@ -357,7 +357,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  teams works!\n</p>\n"
+module.exports = "<table border=\"2px\">\n  <tr>\n    <th>Team</th>\n    <th>Wins</th>\n    <th>Losses</th>\n    <th>Average Points Scored</th>\n    <th>Average Points Allowed</th>\n    <th>Average Points Differential</th>\n  </tr>\n  <tr>\n    <td width=\"100\">test</td>\n    <td width=\"100\">test</td>\n    <td width=\"100\">test</td>\n    <td width=\"100\">test</td>\n    <td width=\"100\">test</td>\n    <td width=\"100\">test</td>\n  </tr>\n</table>\n"
 
 /***/ }),
 
