@@ -38,6 +38,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _history_history_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./history/history.component */ "./src/app/history/history.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _teams_teams_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./teams/teams.component */ "./src/app/teams/teams.component.ts");
+
 
 
 
@@ -46,7 +48,8 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"] },
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"] },
-    { path: 'history', component: _history_history_component__WEBPACK_IMPORTED_MODULE_3__["HistoryComponent"] }
+    { path: 'history', component: _history_history_component__WEBPACK_IMPORTED_MODULE_3__["HistoryComponent"] },
+    { path: 'teams', component: _teams_teams_component__WEBPACK_IMPORTED_MODULE_5__["TeamsComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -254,7 +257,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}\n  </h1>\n  <img width=\"300\" alt=\"NFL Logo\" src=\"static/assets/nfl.jpg\">\n</div>\n<P> This platform will provide you with historical statistics for the 2017 NFL season.  The stats included here are all 2017 NFL games and individual team game stats.\n</P>\n<ul>\n\n  <li>\n    <h2><a routerLink=\"/history\">Historical Stats</a></h2>\n  </li>\n</ul>\n"
+module.exports = "<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}\n  </h1>\n  <img width=\"300\" alt=\"NFL Logo\" src=\"static/assets/nfl.jpg\">\n</div>\n<P> This platform will provide you with historical statistics for the 2017 NFL season.  The stats included here are all 2017 NFL games and individual team game stats.\n</P>\n<ul>\n\n  <li>\n    <h2><a routerLink=\"/history\">Historical Stats</a></h2>\n  </li>\n  <li>\n    <h2><a routerLink=\"/teams\">Teams page</a></h2>\n  </li>\n</ul>\n"
 
 /***/ }),
 
