@@ -12,7 +12,7 @@ export class NflScoresService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCharacters(): Observable<any>{
+  getNFLScores(): Observable<any>{
     let nflScores = this.httpClient.get("/api/scores");
     console.log(nflScores);
 

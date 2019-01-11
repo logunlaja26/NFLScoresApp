@@ -7,12 +7,12 @@
     <th>Average Points Allowed</th>
     <th>Average Points Differential</th>
   </tr>
-  <tr>
-    <td width="100">test</td>
-    <td width="100">test</td>
-    <td width="100">test</td>
-    <td width="100">test</td>
-    <td width="100">test</td>
-    <td width="100">test</td>
+  <tr *ngFor="let data of teamsData | async">
+    <td width="100">{{data.Team}}</td>
+    <td width="100">{{data.Wins}}</td>
+    <td width="100">{{data.Losses}}</td>
+    <td width="100">{{data.AveragePointsScored}}</td>
+    <td width="100">{{data.AveragePointsAllowed}}</td>
+    <td width="100">{{data.AveragePointsDifferential}}</td>
   </tr>
 </table>

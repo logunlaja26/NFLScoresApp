@@ -18,7 +18,7 @@ export class HistoryComponent implements OnInit {
   	this.columns = this.nflService.getColumns();
   	//["Date of Contest","Home team","Away team","Home team scores","Away team scores"]
 
-  	this.scores = this.nflService.getCharacters();
+  	this.scores = this.nflService.getNFLScores();
   	//all data in mock-data.ts
   }
 
