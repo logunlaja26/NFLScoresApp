@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, redirect, url_for, render_template
 import csv
+import scores_data
+import teams_service
 
 app = Flask(__name__)
 
@@ -25,17 +27,19 @@ class Score:
 @app.route("/api/scores")
 def csvParser():
 	scores = []
-	with open('nfl_games.csv', 'r') as csv_file:
-		csv_reader = csv.DictReader(csv_file)
-		for score in csv_reader:
-			if score['season'] == '2017':
-				gameScore = Score(score['date'],score['team1'],score['team2'],score['score1'],score['score2'])
-				scores.append(gameScore.__dict__)
+	for score in scores_data.get2017scores():
+		getScore = Score(score['date'],score['team1'],score['team2'],score['score1'],score['score2'])
+		scores.append(getScore.__dict__)
 	return jsonify(scores)
 
-@app.route("/api/historicalPage")
-def historicalPage():
-	return "Testing..."
+
+
+@app.route("/api/teams")
+def teams():
+	teams = teams_service.getatlantaData()
+	return jsonify(teams)
+
+
 
 if __name__ == "__main__":
 	app.run(debug=True)
