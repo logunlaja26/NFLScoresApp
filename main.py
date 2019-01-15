@@ -33,11 +33,25 @@ def csvParser():
 	return jsonify(scores)
 
 
+class Team:
+	def __init__(self,firstScore,secondScore):
+		self.firstScore = firstScore
+		self.secondScore= secondScore
+
+
+
 
 @app.route("/api/teams")
 def teams():
 	teams = teams_service.getatlantaData()
-	return jsonify(teams)
+	#return jsonify(teams)
+	data = []
+	for team in teams:
+		teamData = Team(team['score1'],team['score2'])
+		data.append(teamData.__dict__)
+	return jsonify(data)
+
+
 
 
 
