@@ -8,3 +8,5 @@ def get2017scores():
     		if score['season'] == '2017':
     			scores.append(score)
     return scores
+
+seasonScores = get2017scores()

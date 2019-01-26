@@ -2,6 +2,8 @@ from flask import Flask, jsonify, redirect, url_for, render_template
 import csv
 import scores_data
 import teams_service
+import games_service
+import game_scores
 
 app = Flask(__name__)
 
@@ -34,26 +36,27 @@ def csvParser():
 
 
 class Team:
-	def __init__(self,firstScore,secondScore):
-		self.firstScore = firstScore
-		self.secondScore= secondScore
+	def __init__(self,teamName,averagePointsScored,averagePointsgivenup):
+		self.teamName = teamName
+		self.averagePointsScored = averagePointsScored
+		self.averagePointsgivenup= averagePointsgivenup
 
 
 
 
 @app.route("/api/teams")
-def teams():
-	teams = teams_service.getatlantaData()
-	#return jsonify(teams)
-	data = []
-	for team in teams:
-		teamData = Team(team['score1'],team['score2'])
-		data.append(teamData.__dict__)
-	return jsonify(data)
-
-
-
-
+def getTeamsData():
+	teamsData = []
+	teams = teams_service.getUniqueTeamsData(scores_data.seasonScores)
+	for team_name in teams:
+		games = games_service.getNumberofGamesPlayed(scores_data.seasonScores, team_name)
+		totalPoints = game_scores.getTotalPointsScores(scores_data.seasonScores, team_name)
+		totalGivenUp = game_scores.getTotalPointsGivenUp(scores_data.seasonScores, team_name)
+		avgPointsScored = totalPoints / games
+		avgPointsGivenUp = totalGivenUp / games
+		teamData = Team(team_name, round(avgPointsScored), round(avgPointsGivenUp))
+		teamsData.append(teamData.__dict__)
+	return jsonify(teamsData)
 
 if __name__ == "__main__":
 	app.run(debug=True)

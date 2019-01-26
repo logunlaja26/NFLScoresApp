@@ -1,8 +1,8 @@
 import scores_data
 
-def getatlantaData():
-    scores = []
-    for score in scores_data.get2017scores():
-        if score['team1'] == 'ATL' or score['team2'] == 'ATL':
-            scores.append(score)
-    return scores
+def getUniqueTeamsData(seasonScores):
+    uniqueTeams = set()
+    for score in seasonScores:
+        uniqueTeams.add(score['team1'])
+        uniqueTeams.add(score['team2'])
+    return uniqueTeams
