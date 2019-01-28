@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { NFL_SCORES } from './nflScores-data';
+//import { NFL_SCORES } from './nflScores-data';
 import { HttpClient } from '@angular/common/http';
 @Injectable()
 

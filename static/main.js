@@ -311,6 +311,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 
 
+//import { NFL_SCORES } from './nflScores-data';
 
 var NflScoresService = /** @class */ (function () {
     function NflScoresService(httpClient) {
@@ -351,64 +352,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamScoresService", function() { return TeamScoresService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _teamScores_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./teamScores-data */ "./src/app/teamScores-data.ts");
-
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 
 
 
 var TeamScoresService = /** @class */ (function () {
-    function TeamScoresService() {
+    function TeamScoresService(httpClient) {
+        this.httpClient = httpClient;
     }
     TeamScoresService.prototype.getTeamScores = function () {
-        console.log('team_scores', _teamScores_data__WEBPACK_IMPORTED_MODULE_3__["TEAM_SCORES"]);
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(_teamScores_data__WEBPACK_IMPORTED_MODULE_3__["TEAM_SCORES"]);
+        var eachTeamScores = this.httpClient.get("/api/teams");
+        console.log('team_scores', eachTeamScores);
+        return eachTeamScores;
     };
     TeamScoresService.prototype.getColumns = function () {
-        return ["Team", "Wins", "Losses", "Average Points Scored", "Average Points Allowed", "Average Points Differential"];
+        return ["Team", "Average Points Scored", "Average Points Allowed"];
     };
     ;
     TeamScoresService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], TeamScoresService);
     return TeamScoresService;
 }());
 
-
-
-/***/ }),
-
-/***/ "./src/app/teamScores-data.ts":
-/*!************************************!*\
-  !*** ./src/app/teamScores-data.ts ***!
-  \************************************/
-/*! exports provided: TEAM_SCORES */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TEAM_SCORES", function() { return TEAM_SCORES; });
-var TEAM_SCORES = [
-    {
-        Team: 'Eagles',
-        Wins: '12',
-        Losses: '5',
-        AveragePointsScored: '13',
-        AveragePointsAllowed: '7',
-        AveragePointsDifferential: '10'
-    },
-    {
-        Team: 'Bengals',
-        Wins: '15',
-        Losses: '2',
-        AveragePointsScored: '25',
-        AveragePointsAllowed: '10',
-        AveragePointsDifferential: '12'
-    },
-];
 
 
 /***/ }),
@@ -431,7 +400,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table border=\"2px\">\n  <tr>\n    <th>Team</th>\n    <th>Wins</th>\n    <th>Losses</th>\n    <th>Average Points Scored</th>\n    <th>Average Points Allowed</th>\n    <th>Average Points Differential</th>\n  </tr>\n  <tr *ngFor=\"let data of teamsData | async\">\n    <td width=\"100\">{{data.Team}}</td>\n    <td width=\"100\">{{data.Wins}}</td>\n    <td width=\"100\">{{data.Losses}}</td>\n    <td width=\"100\">{{data.AveragePointsScored}}</td>\n    <td width=\"100\">{{data.AveragePointsAllowed}}</td>\n    <td width=\"100\">{{data.AveragePointsDifferential}}</td>\n  </tr>\n</table>\n"
+module.exports = "<table border=\"2px\">\n  <tr>\n    <th>Team</th>\n    <th>Average Points Scored</th>\n    <th>Average Points Allowed</th>\n  </tr>\n  <tr *ngFor=\"let data of teamsData | async\">\n    <td width=\"100\">{{data.teamName}}</td>\n    <td width=\"100\">{{data.averagePointsScored}}</td>\n    <td width=\"100\">{{data.averagePointsgivenup}}</td>\n  </tr>\n</table>\n"
 
 /***/ }),
 

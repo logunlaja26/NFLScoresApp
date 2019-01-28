@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { TEAM_SCORES } from './teamScores-data';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -10,14 +9,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TeamScoresService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getTeamScores(): Observable<any>{
-    console.log('team_scores',TEAM_SCORES)
-    return of(TEAM_SCORES);
+    let eachTeamScores = this.httpClient.get("/api/teams");
+    console.log('team_scores', eachTeamScores)
+    return eachTeamScores;
   }
 
   getColumns(): string[] {
-  	return ["Team","Wins","Losses","Average Points Scored","Average Points Allowed","Average Points Differential"]};
+  	return ["Team","Average Points Scored","Average Points Allowed"]};
 
 }
