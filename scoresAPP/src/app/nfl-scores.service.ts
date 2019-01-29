@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-//import { NFL_SCORES } from './nflScores-data';
 import { HttpClient } from '@angular/common/http';
 @Injectable()
 
@@ -14,8 +13,6 @@ export class NflScoresService {
 
   getNFLScores(): Observable<any>{
     let nflScores = this.httpClient.get("/api/scores");
-    console.log(nflScores);
-
   	return nflScores;
   }
 

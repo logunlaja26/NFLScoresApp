@@ -14,8 +14,12 @@ def index():
 
 @app.route("/<staticFileName>")
 def staticFile(staticFileName):
-	staticFileUrl = url_for('static', filename=staticFileName)
-	return redirect(staticFileUrl)
+	staticFiles = ['runtime.js','polyfills.js','styles.js','vendor.js','main.js']
+	if staticFileName in staticFiles:
+		staticFileUrl = url_for('static', filename=staticFileName)
+		return redirect(staticFileUrl)
+
+	return render_template('index.html')
 
 class Score:
 	def __init__(self,dateOfContest,homeTeam,awayTeam,homeTeamScores,awayTeamScores):

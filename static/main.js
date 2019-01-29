@@ -311,7 +311,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 
 
-//import { NFL_SCORES } from './nflScores-data';
 
 var NflScoresService = /** @class */ (function () {
     function NflScoresService(httpClient) {
@@ -319,7 +318,6 @@ var NflScoresService = /** @class */ (function () {
     }
     NflScoresService.prototype.getNFLScores = function () {
         var nflScores = this.httpClient.get("/api/scores");
-        console.log(nflScores);
         return nflScores;
     };
     NflScoresService.prototype.getColumns = function () {
