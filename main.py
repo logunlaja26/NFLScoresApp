@@ -1,6 +1,4 @@
 from flask import Flask, jsonify, redirect, url_for, render_template
-from pml import app
-import os
 import csv
 import scores_data
 import teams_service
@@ -65,6 +63,4 @@ def getTeamsData():
 	return jsonify(teamsData)
 
 if __name__ == "__main__":
-	port = int(os.environ.get('PORT', 5000))
-	app.run(host='0.0.0.0', port=port)
-	#app.run(debug=True)
+	app.run(debug=True)
