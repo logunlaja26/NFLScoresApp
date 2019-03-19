@@ -1,1 +1,1 @@
-web: gunicorn deploy:NFLScoresApp
+web: gunicorn deploy:app
