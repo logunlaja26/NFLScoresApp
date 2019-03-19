@@ -1,2 +1,2 @@
 
-web: gunicorn NFLScoresAPP.wsgi
+web: gunicorn app:app
